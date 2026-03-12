@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="Desafio.Api/Desafio.Api.csproj" />
+    <Project Path="Desafio.Applicacao/Desafio.Aplicacao.csproj" />
+    <Project Path="Desafio.Comum/Desafio.Comum.csproj" />
+    <Project Path="Desafio.Dominio/Desafio.Dominio.csproj" />
+    <Project Path="Desafio.Infraestrutura/Desafio.Infraestrutura.csproj" />
+  </Folder>
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+</Solution>
