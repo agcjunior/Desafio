@@ -25,5 +25,10 @@ namespace Desafio.Infraestrutura.Repositories
             DbContext.Add(entity);
         }
 
+        public void Remover(T entity)
+        {
+            DbContext.Remove(entity);
+        }
+
     }
 }

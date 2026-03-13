@@ -18,6 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Autores\ExcluirAutor\" />
+    <Folder Include="Autores\AlterarAutor\" />
     <Folder Include="Generos\" />
     <Folder Include="Livros\" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using Desafio.Dominio.Livros;
+using Microsoft.EntityFrameworkCore;
 
 namespace Desafio.Infraestrutura.Repositories
 {
@@ -7,6 +8,12 @@ namespace Desafio.Infraestrutura.Repositories
         public LivroRepositorio(ApplicationDbContext dbContext)
             : base(dbContext)
         {
+        }
+
+        public async Task<bool> ExisteParaAutorAsync(Guid autorId, CancellationToken cancellationToken)
+        {
+            return await DbContext.Set<Livro>()
+                .AnyAsync(l => l.AutorId == autorId, cancellationToken);
         }
     }
 }

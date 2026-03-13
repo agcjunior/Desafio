@@ -10,6 +10,11 @@ namespace Desafio.Api.Extensions
             using var scope = app.ApplicationServices.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
             dbContext.Database.Migrate();
+        }    
+
+        public static void UseCustomExceptionHandler(this IApplicationBuilder app)
+            {
+                app.UseMiddleware<Middleware.ExceptionHandlingMiddleware>();
+            }
         }
-    }
 }
