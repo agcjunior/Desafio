@@ -20,4 +20,9 @@
     <ProjectReference Include="..\Desafio.Infraestrutura\Desafio.Infraestrutura.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Generos\" />
+    <Folder Include="Controllers\Livros\" />
+  </ItemGroup>
+
 </Project>

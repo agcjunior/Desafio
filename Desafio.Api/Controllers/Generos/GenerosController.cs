@@ -1,47 +1,47 @@
-﻿using Desafio.Aplicacao.Autores.AdicionarAutor;
-using Desafio.Aplicacao.Autores.ConsultarAutores;
-using Desafio.Aplicacao.Autores.ExcluirAutor;
-using Desafio.Aplicacao.Autores.AlterarAutor;
+using Desafio.Aplicacao.Generos.AdicionarGenero;
+using Desafio.Aplicacao.Generos.ConsultarGeneros;
+using Desafio.Aplicacao.Generos.ExcluirGenero;
+using Desafio.Aplicacao.Generos.AlterarGenero;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Desafio.Api.Controllers.Autores.dtos;
+using Desafio.Api.Controllers.Generos.dtos;
 
-namespace Desafio.Api.Controllers.Autores
+namespace Desafio.Api.Controllers.Generos
 {
-    [Route("api/autores")]
+    [Route("api/generos")]
     [ApiController]
-    public class AutoresController : ControllerBase
+    public class GenerosController : ControllerBase
     {
         private readonly ISender _sender;
 
-        public AutoresController(ISender sender)
+        public GenerosController(ISender sender)
         {
             _sender = sender;
         }
 
         [HttpGet]
-        public async Task<IActionResult> ListarAutores(CancellationToken cancellationToken)
+        public async Task<IActionResult> ListarGeneros(CancellationToken cancellationToken)
         {
-            var query = new ListarAutoresQuery();
+            var query = new ListarGenerosQuery();
             var result = await _sender.Send(query, cancellationToken);
             return result.IsSuccess ? Ok(result.Value) : BadRequest(result.Error);
         }
 
         [HttpGet("{id:guid}")]
-        public async Task<IActionResult> ObterAutorPeloId(Guid id, CancellationToken cancellationToken)
+        public async Task<IActionResult> ObterGeneroPeloId(Guid id, CancellationToken cancellationToken)
         {
-            var query = new ObterAutorPeloIdQuery(id);
+            var query = new ObterGeneroPeloIdQuery(id);
             var result = await _sender.Send(query, cancellationToken);
             return result.IsSuccess ? Ok(result.Value) : NotFound();
         }
 
         [HttpPost]
-        public async Task<IActionResult> IncluirAutor(
-            IncluirAutorRequest request,
+        public async Task<IActionResult> IncluirGenero(
+            IncluirGeneroRequest request,
             CancellationToken cancellationToken)
         {
-            var command = new AdicionarAutorCommand(request.Nome);
+            var command = new AdicionarGeneroCommand(request.Nome);
 
             var result = await _sender.Send(command, cancellationToken);
 
@@ -50,16 +50,16 @@ namespace Desafio.Api.Controllers.Autores
                 return BadRequest(result.Error);
             }
 
-            return CreatedAtAction(nameof(ObterAutorPeloId), new { id = result.Value }, result.Value);
+            return CreatedAtAction(nameof(ObterGeneroPeloId), new { id = result.Value }, result.Value);
         }
 
         [HttpPut("{id:guid}")]
-        public async Task<IActionResult> AlterarAutor(
+        public async Task<IActionResult> AlterarGenero(
             Guid id,
-            [FromBody] AlterarAutorRequest request,
+            [FromBody] AlterarGeneroRequest request,
             CancellationToken cancellationToken)
         {
-            var command = new AlterarAutorCommand(id, request.Nome);
+            var command = new AlterarGeneroCommand(id, request.Nome);
 
             var result = await _sender.Send(command, cancellationToken);
 
@@ -72,9 +72,9 @@ namespace Desafio.Api.Controllers.Autores
         }
 
         [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> ExcluirAutor(Guid id, CancellationToken cancellationToken)
+        public async Task<IActionResult> ExcluirGenero(Guid id, CancellationToken cancellationToken)
         {
-            var command = new ExcluirAutorCommand(id);
+            var command = new ExcluirGeneroCommand(id);
             var result = await _sender.Send(command, cancellationToken);
 
             if (result.IsFailure)

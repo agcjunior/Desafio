@@ -15,5 +15,11 @@ namespace Desafio.Infraestrutura.Repositories
             return await DbContext.Set<Livro>()
                 .AnyAsync(l => l.AutorId == autorId, cancellationToken);
         }
+
+        public async Task<bool> ExisteParaGeneroAsync(Guid generoId, CancellationToken cancellationToken)
+        {
+            return await DbContext.Set<Livro>()
+                .AnyAsync(l => l.GeneroId == generoId, cancellationToken);
+        }
     }
 }

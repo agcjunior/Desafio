@@ -13,6 +13,11 @@ namespace Desafio.Dominio.Generos
         }
         public string Nome { get; private set; }
 
+        public void AlterarNome(string nome)
+        {
+            Nome = nome;
+        }
+
         public static Genero Criar(string  nome)
         {
             var genero = new Genero(Guid.NewGuid(), nome);

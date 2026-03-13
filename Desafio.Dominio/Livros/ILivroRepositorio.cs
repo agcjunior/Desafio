@@ -5,5 +5,6 @@
         Task<Livro?> ObterPorIdAsync(Guid id, CancellationToken cancellationToken = default);
         void Adicionar(Livro livro);
         Task<bool> ExisteParaAutorAsync(Guid autorId, CancellationToken cancellationToken = default);
+        Task<bool> ExisteParaGeneroAsync(Guid generoId, CancellationToken cancellationToken = default);
     }
 }

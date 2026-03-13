@@ -4,5 +4,6 @@
     {
         Task<Genero?> ObterPorIdAsync(Guid id, CancellationToken cancellationToken = default);
         void Adicionar(Genero genero);
+        void Remover(Genero genero);
     }
 }
