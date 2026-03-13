@@ -15,7 +15,11 @@ namespace Desafio.Dominio.Livros
         }   
 
         private Livro(Guid id, string nome, Guid generoId, Guid authorId) : base(id)
-        {           
+        {       
+            Id = id;
+            Nome = nome;
+            GeneroId = generoId;
+            AutorId = authorId;
         }
         
         public string Nome { get; private set; }

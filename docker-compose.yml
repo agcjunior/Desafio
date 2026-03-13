@@ -22,4 +22,15 @@ services:
       - .containers/database:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: demo@example.com
+      PGADMIN_DEFAULT_PASSWORD: secret
+    ports:
+      - "5050:5050"
+    depends_on:
+      - db
+     
    

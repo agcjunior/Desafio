@@ -10,6 +10,7 @@ namespace Desafio.Dominio.Autores
 
         private Autor(Guid id, string nome) : base(id)
         {
+            Id = id;
             Nome = nome;
         }
         

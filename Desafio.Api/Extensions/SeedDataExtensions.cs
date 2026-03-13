@@ -30,7 +30,7 @@ namespace Desafio.Api.Extensions
             connection.Execute(sqlGenero, filosofia);
 
             const string sqlLivro = """"
-                INSERT INTO public.livros (Id, Nome, GeneroId, AutorId) VALUES (@Id, @Nome, @GeneroId, @AutorId);
+                INSERT INTO public.livros (Id, Nome, Genero_Id, Autor_Id) VALUES (@Id, @Nome, @GeneroId, @AutorId);
                 """";
             connection.Execute(sqlLivro, livro);
 

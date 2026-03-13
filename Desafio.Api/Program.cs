@@ -19,11 +19,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Desafio API V1");
-        c.RoutePrefix = string.Empty; // Serve Swagger at the app root (http://localhost:8080)
-    });
+    app.UseSwaggerUI();
+
+    app.ApplyMigrations();
+    app.SeedData();
 }
 
 app.UseHttpsRedirection();
