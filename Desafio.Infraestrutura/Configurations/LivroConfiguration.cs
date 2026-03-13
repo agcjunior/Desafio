@@ -19,11 +19,11 @@ namespace Desafio.Infraestrutura.Configurations
 
             builder.HasOne<Genero>()
                 .WithMany()
-                .HasForeignKey(livro => livro.GeneroId);
+                .HasForeignKey(g => g.GeneroId);
 
             builder.HasOne<Autor>()
                 .WithMany()
-                .HasForeignKey(livro => livro.AutorId);
+                .HasForeignKey(l => l.AutorId);
         }
     }
 }

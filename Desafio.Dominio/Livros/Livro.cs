@@ -1,9 +1,6 @@
 ﻿using Desafio.Comum;
 using Desafio.Dominio.Autores;
 using Desafio.Dominio.Generos;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Desafio.Dominio.Livros
 {
@@ -15,8 +12,7 @@ namespace Desafio.Dominio.Livros
         }   
 
         private Livro(Guid id, string nome, Guid generoId, Guid authorId) : base(id)
-        {       
-            Id = id;
+        {              
             Nome = nome;
             GeneroId = generoId;
             AutorId = authorId;

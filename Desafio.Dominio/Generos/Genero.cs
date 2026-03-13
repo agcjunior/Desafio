@@ -8,8 +8,7 @@ namespace Desafio.Dominio.Generos
         {
         }
         private Genero(Guid id, string nome) : base(id)
-        {
-            Id = id;
+        {            
             Nome = nome;
         }
         public string Nome { get; private set; }
