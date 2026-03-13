@@ -54,20 +54,8 @@ namespace Desafio.Infraestrutura.Migrations
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "fk_livros_autores_id",
-                        column: x => x.id,
-                        principalTable: "autores",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
                         name: "fk_livros_generos_genero_id",
                         column: x => x.genero_id,
-                        principalTable: "generos",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "fk_livros_generos_id",
-                        column: x => x.id,
                         principalTable: "generos",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
