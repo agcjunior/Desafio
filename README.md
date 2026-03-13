@@ -4,7 +4,7 @@ Este projeto é uma API desenvolvida em .NET 10 para o gerenciamento de autores,
 
 ## 🚀 Como Rodar o Projeto
 
-O projeto utiliza **Docker Compose** para orquestrar o ambiente necessário, incluindo o banco de dados PostgreSQL e o pgAdmin.
+O projeto utiliza **Docker Compose** para orquestrar o ambiente necessário, incluindo o banco de dados PostgreSQL.
 
 ### Pré-requisitos
 
