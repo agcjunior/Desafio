@@ -6,7 +6,4 @@
     <Project Path="Desafio.Dominio/Desafio.Dominio.csproj" />
     <Project Path="Desafio.Infraestrutura/Desafio.Infraestrutura.csproj" />
   </Folder>
-  <Project Path="docker-compose.dcproj">
-    <Build />
-  </Project>
 </Solution>

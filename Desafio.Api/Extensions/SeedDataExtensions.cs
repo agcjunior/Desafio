@@ -20,17 +20,17 @@ namespace Desafio.Api.Extensions
             var livro = Livro.Criar("A Republica", filosofia.Id, platao.Id);
 
             const string sqlAutor = """"
-                INSERT INTO public.autores (Id, Nome) VALUES (@Id, @Nome);
+                INSERT INTO Autores (Id, Nome) VALUES (@Id, @Nome);
                 """";
             connection.Execute(sqlAutor, platao);
 
             const string sqlGenero = """"
-                INSERT INTO public.generos (Id, Nome) VALUES (@Id, @Nome);
+                INSERT INTO Generos (Id, Nome) VALUES (@Id, @Nome);
                 """";
             connection.Execute(sqlGenero, filosofia);
 
             const string sqlLivro = """"
-                INSERT INTO public.livros (id, nome, genero_id, autor_id) VALUES (@Id, @Nome, @GeneroId, @AutorId);
+                INSERT INTO Livros (Id, Nome, GeneroId, AutorId) VALUES (@Id, @Nome, @GeneroId, @AutorId);
                 """";
             connection.Execute(sqlLivro, new { livro.Id, livro.Nome, livro.GeneroId, livro.AutorId });
 

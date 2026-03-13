@@ -8,7 +8,7 @@ namespace Desafio.Infraestrutura.Configurations
     {
         public void Configure(EntityTypeBuilder<Genero> builder)
         {
-            builder.ToTable("generos");
+            builder.ToTable("Generos");
             builder.HasKey(genero => genero.Id);
             builder.Property(genero => genero.Nome).HasMaxLength(100).IsRequired();
         }

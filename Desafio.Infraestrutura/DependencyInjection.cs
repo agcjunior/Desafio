@@ -25,10 +25,7 @@ namespace Desafio.Infraestrutura
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseNpgsql(connectionString, npgsqlOptions =>
-                {
-                    npgsqlOptions.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
-                }).UseSnakeCaseNamingConvention();
+                options.UseSqlServer(connectionString);
             });
 
             services.AddScoped<IAutorRepositorio, AutorRepositorio>();

@@ -1,5 +1,5 @@
-﻿using Desafio.Aplicacao.Interfaces;
-using Npgsql;
+using Desafio.Aplicacao.Interfaces;
+using Microsoft.Data.SqlClient;
 using System.Data;
 
 namespace Desafio.Infraestrutura.Data
@@ -15,7 +15,7 @@ namespace Desafio.Infraestrutura.Data
 
         public IDbConnection CreateConnection()
         {
-            var connection = new NpgsqlConnection(_connectionString);
+            var connection = new SqlConnection(_connectionString);
             connection.Open();
             return connection;
         }

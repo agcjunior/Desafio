@@ -13,15 +13,15 @@ namespace Desafio.Infraestrutura.Configurations
     {
         public void Configure(EntityTypeBuilder<Livro> builder)
         {
-            builder.ToTable("livros");
+            builder.ToTable("Livros");
             builder.HasKey(livro => livro.Id);
             builder.Property(livro => livro.Nome).HasMaxLength(100).IsRequired();
 
-            builder.HasOne<Genero>()
+            builder.HasOne(l => l.Genero)
                 .WithMany()
-                .HasForeignKey(g => g.GeneroId);
+                .HasForeignKey(l => l.GeneroId);
 
-            builder.HasOne<Autor>()
+            builder.HasOne(l => l.Autor)
                 .WithMany()
                 .HasForeignKey(l => l.AutorId);
         }
