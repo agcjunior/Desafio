@@ -38,3 +38,4 @@ jobs:
           port: 21
           local-dir: ./Desafio.Api/publish/
           server-dir: /desafio/          
+          dangerous-clean-slate: true
