@@ -2,7 +2,7 @@ name: CI/CD - Deploy to SmarterASP
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build-and-deploy:
@@ -14,7 +14,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '10.0.x'
+          dotnet-version: "10.0.x"
 
       - name: Restore
         run: dotnet restore Desafio.slnx
@@ -22,9 +22,12 @@ jobs:
       - name: Build
         run: dotnet build Desafio.slnx --configuration Release --no-restore
 
+      - name: Run Unit Tests
+        run: dotnet test Desafio.Aplicacao.Tests/Desafio.Aplicacao.Tests.csproj --configuration Release --no-build --verbosity normal
+
       - name: Publish API
         run: dotnet publish Desafio.Api/Desafio.Api.csproj --configuration Release -o ./Desafio.Api/publish
-      
+
       - name: FTP Deploy to SmarterASP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
@@ -35,4 +38,3 @@ jobs:
           port: 21
           local-dir: ./Desafio.Api/publish/
           server-dir: /
-        
