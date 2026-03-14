@@ -20,7 +20,7 @@ namespace Desafio.Infraestrutura
             services.AddTransient<IDateTimeProvider, DateTimeProvider>();
 
             var connectionString = 
-                configuration.GetConnectionString("Database") ??
+                configuration.GetConnectionString("desafioDB") ??
                 throw new ArgumentNullException(nameof(configuration));
 
             services.AddDbContext<ApplicationDbContext>(options =>

@@ -1,0 +1,38 @@
+name: CI/CD - Deploy to SmarterASP
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore Desafio.sln
+
+      - name: Build
+        run: dotnet build Desafio.sln --configuration Release --no-restore
+
+      - name: Publish API
+        run: dotnet publish Desafio.Api/Desafio.Api.csproj --configuration Release --no-build -o ./Desafio.Api/publish
+
+      - name: FTP Deploy to SmarterASP
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.SMARTERASP_FTP_HOST }}
+          username: ${{ secrets.SMARTERASP_FTP_USERNAME }}
+          password: ${{ secrets.SMARTERASP_FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          local-dir: ./Desafio.Api/publish
+          server-dir: ${{ secrets.SMARTERASP_REMOTE_DIR }}
+          passive: true
