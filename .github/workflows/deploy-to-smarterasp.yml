@@ -37,4 +37,5 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./Desafio.Api/publish/
-          server-dir: /
+          server-dir: /desafio/
+          dangerous-clean-slate: true
