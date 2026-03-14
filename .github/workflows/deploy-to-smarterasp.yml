@@ -25,6 +25,12 @@ jobs:
       - name: Publish API
         run: dotnet publish Desafio.Api/Desafio.Api.csproj --configuration Release --no-build -o ./Desafio.Api/publish
 
+      - name: List root folder
+        run: ls -R .
+
+      - name: List publish folder
+        run: ls -R ./Desafio.Api/publish
+
       - name: FTP Deploy to SmarterASP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
