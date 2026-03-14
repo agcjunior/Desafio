@@ -34,4 +34,5 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./Desafio.Api/publish/
-          server-dir: /agcjunior-001/www/desafio/         
+          server-dir: /
+        
