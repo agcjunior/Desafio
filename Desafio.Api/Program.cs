@@ -25,9 +25,12 @@ if (app.Environment.IsDevelopment())
     app.SeedData();
 }
 
+
 app.UseHttpsRedirection();
 
 app.UseCustomExceptionHandler();
+
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod());
 
 app.MapControllers();
 
