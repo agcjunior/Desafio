@@ -24,13 +24,7 @@ jobs:
 
       - name: Publish API
         run: dotnet publish Desafio.Api/Desafio.Api.csproj --configuration Release -o ./Desafio.Api/publish
-
-      - name: List root folder
-        run: ls -R .
-
-      - name: List publish folder
-        run: ls -R ./Desafio.Api/publish
-
+      
       - name: FTP Deploy to SmarterASP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
@@ -39,6 +33,5 @@ jobs:
           password: ${{ secrets.SMARTERASP_FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          local-dir: ./Desafio.Api/publish
-          server-dir: ${{ secrets.SMARTERASP_REMOTE_DIR }}
-          passive: true
+          local-dir: ./Desafio.Api/publish/
+          server-dir: ${{ secrets.SMARTERASP_REMOTE_DIR }}          
