@@ -17,10 +17,10 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Restore
-        run: dotnet restore Desafio.sln
+        run: dotnet restore Desafio.slnx
 
       - name: Build
-        run: dotnet build Desafio.sln --configuration Release --no-restore
+        run: dotnet build Desafio.slnx --configuration Release --no-restore
 
       - name: Publish API
         run: dotnet publish Desafio.Api/Desafio.Api.csproj --configuration Release --no-build -o ./Desafio.Api/publish
