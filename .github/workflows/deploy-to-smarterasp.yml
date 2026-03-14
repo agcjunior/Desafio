@@ -34,4 +34,4 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./Desafio.Api/publish/
-          server-dir: /site/wwwroot/          
+          server-dir: /wwwroot/          
