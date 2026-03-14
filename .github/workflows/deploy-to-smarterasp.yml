@@ -31,7 +31,7 @@ jobs:
           server: ${{ secrets.SMARTERASP_FTP_HOST }}
           username: ${{ secrets.SMARTERASP_FTP_USERNAME }}
           password: ${{ secrets.SMARTERASP_FTP_PASSWORD }}
-          protocol: ftps
+          protocol: ftp
           port: 21
           local-dir: ./Desafio.Api/publish/
-          server-dir: ${{ secrets.SMARTERASP_REMOTE_DIR }}          
+          server-dir: /site/wwwroot/          
