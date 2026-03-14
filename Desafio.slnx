@@ -6,4 +6,7 @@
     <Project Path="Desafio.Dominio/Desafio.Dominio.csproj" />
     <Project Path="Desafio.Infraestrutura/Desafio.Infraestrutura.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="Desafio.Aplicacao.Tests/Desafio.Aplicacao.Tests.csproj" Id="cd7cd205-cee2-46b5-b680-d9896aa381c5" />
+  </Folder>
 </Solution>
